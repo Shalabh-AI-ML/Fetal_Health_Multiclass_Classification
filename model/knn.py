@@ -6,7 +6,7 @@ from pathlib import Path
 # Add parent directory to path to import data_processing
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from data_processing import DataProcessor
-from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
 
 # initialize the data processor
 data_processor = DataProcessor()
@@ -16,19 +16,18 @@ X_val_scaled = data_processor.X_val_scaled
 y_train = data_processor.y_train
 y_val = data_processor.y_val
 
-print("Training Logistic Regression Model...")
-model = LogisticRegression(max_iter=1000, random_state=42)
-model.fit(X_train_scaled, y_train)
-print("Model training completed.")
+print("Training K-Nearest Neighbors Model...")
+knn_model = KNeighborsClassifier(n_neighbors=7, metric='minkowski', p=2)
+knn_model.fit(X_train_scaled, y_train)
+print("K-Nearest Neighbors Model Trained.")
 
 # Evaluate the model on the validation set
-val_accuracy = model.score(X_val_scaled, y_val)
+val_accuracy = knn_model.score(X_val_scaled, y_val)
 print(f"Validation Accuracy: {val_accuracy:.4f}")
 
-# Save the trained model to a file using joblib
-joblib.dump(model, "saved_model/fetal_health_logreg_model.pkl")
+# Save the trained model
+joblib.dump(knn_model, "saved_model/knn_model.pkl")
 print("Model saved successfully.")
 
-# Save the scaler to a file using joblib
-joblib.dump(data_processor.scaler, "saved_model/fetal_health_logreg_scaler.pkl")
+joblib.dump(data_processor.scaler, "saved_model/knn_scaler.pkl")
 print("Scaler saved successfully.")

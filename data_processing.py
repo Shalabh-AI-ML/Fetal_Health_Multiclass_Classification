@@ -9,17 +9,18 @@ from sklearn.preprocessing import StandardScaler
 
 
 class DataProcessor:
-    def __init__(self, file_path):
-        self.file_path = file_path
+    def __init__(self):
         self.data = None
         self.X_train_scaled = None
         self.X_val_scaled = None
         self.y_train = None
         self.y_val = None
+        self.scaler = None
+        self.preprocess_data()
 
     def load_data(self):
         # Load dataset from the specified CSV file.
-        self.data = pd.read_csv(self.file_path)
+        self.data = pd.read_csv("fetal_health.csv")
         print(self.data.info())
         print(self.data.isnull().sum())
 
@@ -49,4 +50,4 @@ class DataProcessor:
         self.X_val_scaled = scaler.transform(X_val)  # Scale the validation data
         self.y_train = y_train
         self.y_val = y_val
-        return self.X_train_scaled, self.X_val_scaled, self.y_train, self.y_val
+        self.scaler = scaler
