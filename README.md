@@ -87,6 +87,64 @@ fetal_health
 
 ## 3. Github Repository Link
 
-```text
-fetal_health
-```
+Below is the link to github repository. 
+
+[Fetal Health Multiclass Classification (click to open github URL)](https://github.com/Shalabh-AI-ML/Fetal_Health_Multiclass_Classification.git)
+
+Repository contains:
+- model - This is a folder where the code for all the 5 models implementation is available.
+- saved_model - This folder contains the pretrained models which are also validated after training. It also contains the normalization technique used for training and validation data.
+- app.py - This is a initialization of the streamlit app which holds the logic for choosing the models from the drop down list and displaying the results
+- data_processing.py - This file is used for preprocessing fetal_health.csv file and dividing the dataset into train and validation.
+- fetal_health.csv - This is the csv file contains the training and validation data.
+- test_data.csv - This file is a test data file that needs to be uploaded from the streamlit app.
+- README.md
+
+## 4. Machine Learning Models Used
+### 4.1 Logistic Regression:
+Logistic Regression is a linear classification algorithm used to predict the probability of observations belonging to different classes.
+
+For this project, multiclass Logistic Regression is used to classify fetal health into Normal, Suspect, and Pathological categories.
+
+### 4.2 Decision Tree
+Decision Tree is a tree-based classification algorithm that makes predictions by recursively splitting the dataset based on feature values.
+The resulting tree structure consists of:
+- Root node
+- Decision nodes
+- Branches
+- Leaf nodes
+
+Decision Trees are easy to interpret and can capture nonlinear relationships between features.
+
+### 4.3 k-Nearest Neighbors (kNN)
+kNN is a distance-based classification algorithm.
+
+For a new observation, kNN:
+
+1. Calculates the distance between the new observation and training observations.
+2. Identifies the k nearest observations.
+3. Uses the majority class among the neighbors as the prediction.
+
+Feature scaling is important for kNN because it is based on distance calculations.
+
+### 4.4 Naive Bayes
+Gaussian Naive Bayes is a probabilistic classification algorithm based on Bayes' theorem.
+
+It assumes that the features follow a Gaussian (normal) distribution within each class.
+
+The model calculates the probability of each fetal health class and selects the class with the highest probability.
+
+### 4.5 Random Forest
+Random Forest is an ensemble learning algorithm consisting of multiple Decision Trees.
+
+Each tree is trained using different samples/features, and the final prediction is obtained by combining the predictions of the individual trees.
+
+Random Forest is generally effective for datasets containing nonlinear relationships and interactions between features.
+
+| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
+| :---| :---| :--- | :---| :---|:--- |:---|
+| **Logistic Regression**| 0.89| 0.96| 0.90| 0.89| 0.89| 0.71|
+| **Descision Tree**| 0.98| 0.97| 0.98| 0.98| 0.98| 0.94|
+| **kNN**| 0.90| 0.96| 0.89| 0.90| 0.89| 0.72|
+| **Naive Bayes**| 0.70| 0.86| 0.86| 0.70| 0.74| 0.49|
+| **Rambom Forest (Ensemble)**| 0.97| 0.99| 0.97| 0.97| 0.97| 0.93|
