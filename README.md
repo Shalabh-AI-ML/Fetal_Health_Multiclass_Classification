@@ -148,3 +148,14 @@ Random Forest is generally effective for datasets containing nonlinear relations
 | **kNN**| 0.90| 0.96| 0.89| 0.90| 0.89| 0.72|
 | **Naive Bayes**| 0.70| 0.86| 0.86| 0.70| 0.74| 0.49|
 | **Rambom Forest (Ensemble)**| 0.97| 0.99| 0.97| 0.97| 0.97| 0.93|
+
+
+Based on the above values for metrics, below are the observations for each model
+
+| ML Model Name | Observation about model performance |
+| :---| :---|
+| **Logistic Regression**| Logistic Regression achieved an accuracy of 0.89 and an AUC of 0.96, indicating good overall classification and strong class-separation capability. Precision, Recall, and F1 Score are all around 0.89–0.90, showing a well-balanced performance. Its MCC of 0.71 also indicates a reasonably strong correlation between predicted and actual classes. However, its performance is lower than the Decision Tree and Random Forest models.|
+| **Descision Tree**| Decision Tree achieved the highest accuracy of 0.98, with Precision, Recall, and F1 Score also reaching 0.98. Its MCC of 0.94 indicates very strong agreement between predicted and actual classifications. The AUC of 0.97 demonstrates excellent class-separation ability. Overall, the Decision Tree performed exceptionally well on this dataset and achieved the best overall classification metrics.|
+| **kNN**| kNN achieved an accuracy of 0.90 and an AUC of 0.96, showing good predictive performance. Its Recall of 0.90 indicates that it successfully identifies a high proportion of the actual classes. However, its Precision and F1 Score of 0.89 and MCC of 0.72 are lower than those of the Decision Tree and Random Forest.|
+| **Naive Bayes**| Naive Bayes produced the lowest overall performance, with an accuracy of 0.70, Recall of 0.70, F1 Score of 0.74, and MCC of 0.49. Although its AUC of 0.86 and Precision of 0.86 indicate some ability to distinguish between classes, its relatively low Recall suggests that it misses a considerable number of actual cases. The lower performance may be related to the Gaussian Naive Bayes assumptions about feature distributions and conditional independence.|
+| **Rambom Forest (Ensemble)**| Random Forest achieved an accuracy of 0.97, with Precision, Recall, and F1 Score all at 0.97. Its AUC of 0.99 is the highest among all models, demonstrating excellent ability to distinguish between the fetal health classes. Its MCC of 0.93 also indicates very strong predictive agreement. Random Forest provides highly consistent and robust performance and is very close to the Decision Tree in overall classification performance.
